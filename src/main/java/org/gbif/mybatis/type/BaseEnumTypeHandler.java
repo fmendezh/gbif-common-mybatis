@@ -13,7 +13,7 @@ import org.apache.ibatis.type.TypeHandler;
  *
  * @param <T> the enumeration to be handled
  */
-public class BaseEnumTypeHandler<T extends Enum<?>> implements TypeHandler {
+public class BaseEnumTypeHandler<T extends Enum<?>> implements TypeHandler<T> {
 
   private final BaseConverter<T> typeConverter;
 
@@ -22,7 +22,7 @@ public class BaseEnumTypeHandler<T extends Enum<?>> implements TypeHandler {
   }
 
   @Override
-  public void setParameter(PreparedStatement ps, int i, Object parameter, JdbcType jdbcType) throws SQLException {
+  public void setParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException {
     ps.setObject(i, typeConverter.fromEnum((T) parameter));
   }
 
