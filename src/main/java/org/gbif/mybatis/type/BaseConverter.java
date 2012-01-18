@@ -2,7 +2,6 @@ package org.gbif.mybatis.type;
 
 import java.util.Map;
 
-import com.google.common.base.Preconditions;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 
@@ -37,8 +36,7 @@ public abstract class BaseConverter<K, T extends Enum<?>> implements EnumConvert
 
   @Override
   public K fromEnum(T value) {
-    Preconditions.checkNotNull(value);
-
+    if (value == null) return null;
     if (map.containsValue(value)) {
       return map.inverse().get(value);
     }
