@@ -13,11 +13,11 @@ import org.apache.ibatis.type.TypeHandler;
  *
  * @param <T> the enumeration to be handled
  */
-public class BaseEnumTypeHandler<T extends Enum<?>> implements TypeHandler<T> {
+public class BaseEnumTypeHandler<K, T extends Enum<?>> implements TypeHandler<T> {
 
-  private final BaseConverter<T> typeConverter;
+  private final BaseConverter<K, T> typeConverter;
 
-  public BaseEnumTypeHandler(BaseConverter<T> typeConverter) {
+  public BaseEnumTypeHandler(BaseConverter<K, T> typeConverter) {
     this.typeConverter = typeConverter;
   }
 
@@ -28,13 +28,13 @@ public class BaseEnumTypeHandler<T extends Enum<?>> implements TypeHandler<T> {
 
   @Override
   public T getResult(ResultSet rs, String columnName) throws SQLException {
-    Integer termIndex = (Integer) rs.getObject(columnName);
+    K termIndex = (K) rs.getObject(columnName);
     return typeConverter.toEnum(termIndex);
   }
 
   @Override
   public T getResult(CallableStatement cs, int columnIndex) throws SQLException {
-    int termIndex = cs.getInt(columnIndex);
+    K termIndex = (K) cs.getObject(columnIndex);
     return typeConverter.toEnum(termIndex);
   }
 }

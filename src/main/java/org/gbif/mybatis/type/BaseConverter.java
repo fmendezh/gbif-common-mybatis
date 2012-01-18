@@ -11,9 +11,9 @@ import com.google.common.collect.ImmutableBiMap;
  *
  * @param <T> the enumeration to be converted
  */
-public abstract class BaseConverter<T extends Enum<?>> implements EnumConverter<T> {
+public abstract class BaseConverter<K, T extends Enum<?>> implements EnumConverter<K,T> {
 
-  private final BiMap<Integer, T> map;
+  private final BiMap<K, T> map;
   private final T nullValue;
 
   /**
@@ -23,20 +23,20 @@ public abstract class BaseConverter<T extends Enum<?>> implements EnumConverter<
    * @throws IllegalArgumentException if two keys have the same value
    * @throws NullPointerException     if any key or value is null
    */
-  protected BaseConverter(T nullValue, Map<Integer, T> map) {
+  protected BaseConverter(T nullValue, Map<K, T> map) {
     this.map = ImmutableBiMap.copyOf(map);
     this.nullValue = nullValue;
   }
 
   @Override
-  public T toEnum(Integer key) {
+  public T toEnum(K key) {
     if (key == null) return nullValue;
     T val = map.get(key);
     return val == null ? nullValue : val;
   }
 
   @Override
-  public Integer fromEnum(T value) {
+  public K fromEnum(T value) {
     Preconditions.checkNotNull(value);
 
     if (map.containsValue(value)) {

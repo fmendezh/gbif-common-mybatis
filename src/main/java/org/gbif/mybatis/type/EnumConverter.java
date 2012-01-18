@@ -1,12 +1,13 @@
 package org.gbif.mybatis.type;
 
 /**
- * Generic CLB enumeration value converter interface for mapping magic clb integers used for persisting
+ * Generic enumeration value converter interface for mapping magic keys used for persisting
  * to their respective enum values and vice versa.
  *
+ * @param <K> the specific key, usually Integer or String this converter is working with
  * @param <T> the specific enumeration this converter is working with
  */
-public interface EnumConverter<T extends Enum<?>> {
+public interface EnumConverter<K, T extends Enum<?>> {
 
   /**
    * Converts an integer key used for persisting to the matching enumeration value.
@@ -15,7 +16,7 @@ public interface EnumConverter<T extends Enum<?>> {
    *
    * @return the matching enumeration value or NULL if not found
    */
-  T toEnum(Integer key);
+  T toEnum(K key);
 
   /**
    * Converts an enumeration value to its unique integer key used for persisting.
@@ -26,5 +27,5 @@ public interface EnumConverter<T extends Enum<?>> {
    *
    * @throws IllegalArgumentException for unknown enumeration values
    */
-  Integer fromEnum(T value);
+  K fromEnum(T value);
 }
