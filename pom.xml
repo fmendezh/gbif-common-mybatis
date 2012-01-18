@@ -1,0 +1,98 @@
+<!--
+  ~ Copyright 2011 Global Biodiversity Information Facility (GBIF)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.gbif</groupId>
+    <artifactId>motherpom</artifactId>
+    <version>7</version>
+  </parent>
+
+  <groupId>org.gbif</groupId>
+  <artifactId>gbif-common-mybatis</artifactId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>GBIF Common :: Mybatis</name>
+  <description>Utilities for common mybatis persistence layers</description>
+  <url>http://sites.gbif.org/common-resources/gbif-common-mybatis</url>
+
+  <properties>
+    <junit.version>4.10</junit.version>
+    <findbugs-jsr305.version>1.3.9</findbugs-jsr305.version>
+    <guava.version>10.0.1</guava.version>
+    <mybatis.version>3.0.6</mybatis.version>
+  </properties>
+
+  <scm>
+    <connection>scm:svn:http://gbif-common-resources.googlecode.com/svn/gbif-common-mybatis/trunk</connection>
+    <developerConnection>scm:svn:https://gbif-common-resources.googlecode.com/svn/gbif-common-mybatis/trunk</developerConnection>
+    <url>http://code.google.com/p/gbif-common-resources/source/browse/#svn/gbif-common-mybatis/trunk</url>
+  </scm>
+
+  <issueManagement>
+    <system>Google Code</system>
+    <url>http://code.google.com/p/gbif-common-resources/issues/list</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>jenkins</system>
+    <url>http://builds.gbif.org/job/gbif-common-mybatis</url>
+  </ciManagement>
+
+  <distributionManagement>
+    <site>
+      <id>gbif-site</id>
+      <name>Site for the project</name>
+      <url>scp://tools.gbif.org:/var/www/html/sites/common-resources/gbif-common-mybatis</url>
+    </site>
+  </distributionManagement>
+
+  <repositories>
+    <repository>
+      <id>gbif-all</id>
+      <url>http://repository.gbif.org/content/groups/gbif</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>${findbugs-jsr305.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+
+    <!-- TEST -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit-dep</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
