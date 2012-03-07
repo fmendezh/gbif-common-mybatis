@@ -18,9 +18,9 @@ public class DatasetTypeConverter extends BaseConverter<Integer, DatasetType> {
    */
   public DatasetTypeConverter() {
     super(null, new ImmutableMap.Builder<Integer, DatasetType>()
-        .put(19000, CHECKLIST)
-        .put(19010, OCCURRENCE)
-        .put(19020, METADATA)
+        .put(18000, CHECKLIST)
+        .put(18010, OCCURRENCE)
+        .put(18020, METADATA)
         .build());
   };
 }

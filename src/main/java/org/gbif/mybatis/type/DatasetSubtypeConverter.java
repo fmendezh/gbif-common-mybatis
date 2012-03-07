@@ -23,14 +23,14 @@ public class DatasetSubtypeConverter extends BaseConverter<Integer, DatasetSubty
    */
   public DatasetSubtypeConverter() {
     super(null, new ImmutableMap.Builder<Integer, DatasetSubtype>()
-      .put(18000, DERIVED_FROM_OCCURRENCE)
-      .put(18010, GLOBAL_SPECIES_DATASET)
-      .put(18020, INVENTORY_REGIONAL)
-      .put(18030, INVENTORY_THEMATIC)
-      .put(18040, NOMENCLATOR_AUTHORITY)
-      .put(18050, OBSERVATION)
-      .put(18060, SPECIMEN)
-      .put(18070, TAXONOMIC_AUTHORITY)
+      .put(19000, DERIVED_FROM_OCCURRENCE)
+      .put(19010, GLOBAL_SPECIES_DATASET)
+      .put(19020, INVENTORY_REGIONAL)
+      .put(19030, INVENTORY_THEMATIC)
+      .put(19040, NOMENCLATOR_AUTHORITY)
+      .put(19050, OBSERVATION)
+      .put(19060, SPECIMEN)
+      .put(19070, TAXONOMIC_AUTHORITY)
       .build());
   };
 }
