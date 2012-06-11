@@ -28,13 +28,20 @@ public class BaseEnumTypeHandler<K, T extends Enum<?>> implements TypeHandler<T>
 
   @Override
   public T getResult(ResultSet rs, String columnName) throws SQLException {
-    K termIndex = (K) rs.getObject(columnName);
-    return typeConverter.toEnum(termIndex);
+    return toEnum((K) rs.getObject(columnName));
+  }
+
+  @Override
+  public T getResult(ResultSet rs, int columnIndex) throws SQLException {
+    return toEnum((K) rs.getObject(columnIndex));
   }
 
   @Override
   public T getResult(CallableStatement cs, int columnIndex) throws SQLException {
-    K termIndex = (K) cs.getObject(columnIndex);
+    return toEnum((K) cs.getObject(columnIndex));
+  }
+
+  private T toEnum(K termIndex) {
     return typeConverter.toEnum(termIndex);
   }
 }

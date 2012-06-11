@@ -23,13 +23,26 @@ public class UuidTypeHandler extends BaseTypeHandler<UUID> {
 
   @Override
   public UUID getNullableResult(ResultSet rs, String columnName) throws SQLException {
-    String val = rs.getString(columnName);
-    return val == null ? null : UUID.fromString(val);
+    return toUuid(rs.getString(columnName));
+  }
+
+  @Override
+  public UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+    return toUuid(rs.getString(columnIndex));
   }
 
   @Override
   public UUID getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-    String val = cs.getString(columnIndex);
+    return toUuid(cs.getString(columnIndex));
+  }
+
+  /**
+   * Converts a string to a {@link UUID} object if it is not null, returns {@code null otherwise}.
+   *
+   * @param val to convert into a UUID object, may be null
+   * @return UUID object created from the val parameter
+   */
+  private static UUID toUuid(String val) {
     return val == null ? null : UUID.fromString(val);
   }
 
