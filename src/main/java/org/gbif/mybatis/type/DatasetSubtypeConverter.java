@@ -32,5 +32,6 @@ public class DatasetSubtypeConverter extends BaseConverter<Integer, DatasetSubty
       .put(19060, SPECIMEN)
       .put(19070, TAXONOMIC_AUTHORITY)
       .build());
-  };
+  }
+
 }

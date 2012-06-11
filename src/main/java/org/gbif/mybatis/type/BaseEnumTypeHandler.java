@@ -23,7 +23,7 @@ public class BaseEnumTypeHandler<K, T extends Enum<?>> implements TypeHandler<T>
 
   @Override
   public void setParameter(PreparedStatement ps, int i, T parameter, JdbcType jdbcType) throws SQLException {
-    ps.setObject(i, typeConverter.fromEnum((T) parameter));
+    ps.setObject(i, typeConverter.fromEnum(parameter));
   }
 
   @Override

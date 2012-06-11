@@ -12,13 +12,12 @@ import org.apache.ibatis.type.JdbcType;
 /**
  * Handler for UUID types.
  *
- * @see java.util.UUID
+ * @see UUID
  */
 public class UuidTypeHandler extends BaseTypeHandler<UUID> {
 
   @Override
-  public void setNonNullParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType)
-    throws SQLException {
+  public void setNonNullParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType) throws SQLException {
     ps.setString(i, parameter.toString());
   }
 

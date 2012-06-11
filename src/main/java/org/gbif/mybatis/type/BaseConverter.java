@@ -10,7 +10,7 @@ import com.google.common.collect.ImmutableBiMap;
  *
  * @param <T> the enumeration to be converted
  */
-public abstract class BaseConverter<K, T extends Enum<?>> implements EnumConverter<K,T> {
+public abstract class BaseConverter<K, T extends Enum<?>> implements EnumConverter<K, T> {
 
   private final BiMap<K, T> map;
   private final T nullValue;

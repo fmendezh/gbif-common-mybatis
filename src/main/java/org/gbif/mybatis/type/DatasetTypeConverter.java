@@ -22,5 +22,6 @@ public class DatasetTypeConverter extends BaseConverter<Integer, DatasetType> {
         .put(18010, OCCURRENCE)
         .put(18020, METADATA)
         .build());
-  };
+  }
+
 }
