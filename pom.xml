@@ -28,8 +28,8 @@
   <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>GBIF Common :: Mybatis</name>
-  <description>Utilities for common mybatis persistence layers</description>
+  <name>GBIF Common :: MyBatis</name>
+  <description>Utilities for common MyBatis persistence layers</description>
   <url>http://sites.gbif.org/common-resources/gbif-common-mybatis</url>
 
   <properties>
