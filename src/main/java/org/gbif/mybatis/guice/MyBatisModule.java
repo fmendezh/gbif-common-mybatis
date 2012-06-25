@@ -13,14 +13,14 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
-  protected final Properties properties;
-  private final String CACHE_KEY = "cache";
+  private final Properties properties;
+  private static final String CACHE_KEY = "cache";
   private static final Logger LOG = LoggerFactory.getLogger(MyBatisModule.class);
 
   /**
    * Properties with potential prefix scope already being removed.
    */
-  public MyBatisModule(Properties properties) {
+  protected MyBatisModule(Properties properties) {
     this.properties = properties;
   }
 
@@ -30,7 +30,7 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
     if (properties.containsKey(CACHE_KEY)) {
       String x = properties.getProperty(CACHE_KEY);
       try {
-        useCache = (x == null) ? false : (Boolean.parseBoolean(x));
+        useCache = x != null && Boolean.parseBoolean(x);
       } catch (Exception e) {
         LOG.error("Bad configuration found for {}; {}", CACHE_KEY, x);
       }
@@ -54,10 +54,10 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
     bindDataSourceProviderType(BoneCPProvider.class);
   }
 
-  abstract void bindMappers();
+  abstract protected void bindMappers();
 
-  abstract void bindTypeHandlers();
+  abstract protected void bindTypeHandlers();
 
-  abstract void bindManagers();
+  abstract protected void bindManagers();
 
 }
