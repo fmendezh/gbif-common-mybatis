@@ -48,16 +48,16 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
   /**
    * Implement method to bind the mybatis mappers to be used.
    */
-  abstract protected void bindMappers();
+  protected abstract void bindMappers();
 
   /**
    * Implement method to bind the mybatis type handlers to be used.
    */
-  abstract protected void bindTypeHandlers();
+  protected abstract void bindTypeHandlers();
 
   /**
    * Implement method to bind the managers/services.
    */
-  abstract protected void bindManagers();
+  protected abstract void bindManagers();
 
 }
