@@ -3,7 +3,6 @@ package org.gbif.mybatis.guice;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
-import org.mybatis.guice.datasource.bonecp.BoneCPProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,10 +27,10 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
     useCacheEnabled(useCache());
     if (useCache()) {
-      LOG.info("Configuring registry persitance with cache");
+      LOG.info("Configuring MyBatis with cache");
       environmentId("production");
     } else {
-      LOG.info("Configuring registry persitance with NO cache");
+      LOG.info("Configuring MyBatis with no cache");
       environmentId("development");
     }
 
@@ -40,9 +39,7 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
     bindTypeHandlers();
     bindManagers();
 
-    // TODO: Make configurable somehow? Load from classname property.
-    // Couldn't figure out how to do that with the generics though.
-    bindDataSourceProviderType(BoneCPProvider.class);
+    bindDataSourceProviderType(BoneCPExtendedProvider.class);
   }
 
   /**

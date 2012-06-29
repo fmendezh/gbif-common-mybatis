@@ -33,6 +33,7 @@
   <url>http://sites.gbif.org/common-resources/gbif-common-mybatis</url>
 
   <properties>
+    <bonecp.version>0.7.1.RELEASE</bonecp.version>
     <findbugs-jsr305.version>2.0.0</findbugs-jsr305.version>
     <gbif-common-api.version>0.1</gbif-common-api.version>
     <guava.version>12.0</guava.version>
@@ -112,6 +113,11 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jolbox</groupId>
+      <artifactId>bonecp</artifactId>
+      <version>${bonecp.version}</version>
     </dependency>
 
     <!-- Test -->
