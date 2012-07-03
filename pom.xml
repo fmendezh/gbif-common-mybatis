@@ -37,6 +37,7 @@
     <findbugs-jsr305.version>2.0.0</findbugs-jsr305.version>
     <gbif-common-api.version>0.1</gbif-common-api.version>
     <guava.version>12.0</guava.version>
+    <guice.version>3.0</guice.version>
     <hamcrest.version>1.2.1</hamcrest.version>
     <junit.version>4.10</junit.version>
     <mockito.version>1.9.0</mockito.version>
@@ -89,6 +90,11 @@
       <version>${guava.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>${guice.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.gbif</groupId>
       <artifactId>gbif-common-api</artifactId>
       <version>${gbif-common-api.version}</version>
@@ -118,6 +124,7 @@
       <groupId>com.jolbox</groupId>
       <artifactId>bonecp</artifactId>
       <version>${bonecp.version}</version>
+      <scope>runtime</scope>
     </dependency>
 
     <!-- Test -->

@@ -3,6 +3,7 @@ package org.gbif.mybatis.guice;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
+import org.mybatis.guice.datasource.bonecp.BoneCPProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +40,7 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
     bindTypeHandlers();
     bindManagers();
 
-    bindDataSourceProviderType(BoneCPExtendedProvider.class);
+    bindDataSourceProviderType(BoneCPProvider.class);
   }
 
   /**
