@@ -15,9 +15,9 @@ import org.apache.ibatis.type.TypeHandler;
  */
 public class BaseEnumTypeHandler<K, T extends Enum<?>> implements TypeHandler<T> {
 
-  private final BaseConverter<K, T> typeConverter;
+  private final EnumConverter<K, T> typeConverter;
 
-  public BaseEnumTypeHandler(BaseConverter<K, T> typeConverter) {
+  public BaseEnumTypeHandler(EnumConverter<K, T> typeConverter) {
     this.typeConverter = typeConverter;
   }
 
