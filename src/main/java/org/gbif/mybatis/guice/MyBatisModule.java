@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Basic mybatis module using BoneCP and offers an optional Named guice setting to turn on caching by binding
- * a Boolean "enableCache". The Datasource will be
+ * a Boolean "enableCache".
  */
 public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
