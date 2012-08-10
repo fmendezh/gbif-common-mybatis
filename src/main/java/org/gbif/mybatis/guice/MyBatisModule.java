@@ -1,7 +1,11 @@
 package org.gbif.mybatis.guice;
 
+import javax.sql.DataSource;
+
 import com.google.inject.Inject;
+import com.google.inject.Key;
 import com.google.inject.name.Named;
+import com.google.inject.name.Names;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.datasource.bonecp.BoneCPProvider;
 import org.slf4j.Logger;
@@ -9,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Basic mybatis module using BoneCP and offers an optional Named guice setting to turn on caching by binding
- * a Boolean "enableCache".
+ * a Boolean "enableCache". The Datasource will be
  */
 public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
@@ -18,9 +22,29 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
   @Inject(optional = true)
   @Named("enableCache")
   private Boolean useCache;
+  private final Key<DataSource> datasourceKey;
+  private final boolean bindDatasource;
 
   protected boolean useCache() {
     return useCache != null && useCache;
+  }
+
+  /**
+   * Creates a new mybatis module binding the Datasource by its class directly.
+   * The guice key for that binding is available through {@link #getDatasourceKey}.
+   */
+  public MyBatisModule() {
+    datasourceKey = Key.get(DataSource.class);
+    bindDatasource = false;
+  }
+
+  /**
+   * Creates a new mybatis module binding the Datasource with a name.
+   * The guice key for that binding is available through {@link #getDatasourceKey}.
+   */
+  public MyBatisModule(String datasourceBindingName) {
+    datasourceKey = Key.get(DataSource.class, Names.named(datasourceBindingName));
+    bindDatasource = true;
   }
 
   @Override
@@ -41,6 +65,17 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
     bindManagers();
 
     bindDataSourceProviderType(BoneCPProvider.class);
+
+    if (bindDatasource) {
+      bind(datasourceKey).to(DataSource.class);
+    }
+  }
+
+  /**
+   * @return the guice key for the bound datasource using a named binding if provided in constructor
+   */
+  public Key<DataSource> getDatasourceKey() {
+    return datasourceKey;
   }
 
   /**
