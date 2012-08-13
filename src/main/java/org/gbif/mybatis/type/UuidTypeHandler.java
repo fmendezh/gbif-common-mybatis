@@ -26,8 +26,7 @@ public class UuidTypeHandler extends BaseTypeHandler<UUID> {
     return toUuid(rs.getString(columnName));
   }
 
-  @Override
-  public UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+  private UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
     return toUuid(rs.getString(columnIndex));
   }
 
@@ -40,6 +39,7 @@ public class UuidTypeHandler extends BaseTypeHandler<UUID> {
    * Converts a string to a {@link UUID} object if it is not null, returns {@code null otherwise}.
    *
    * @param val to convert into a UUID object, may be null
+   *
    * @return UUID object created from the val parameter
    */
   private static UUID toUuid(String val) {

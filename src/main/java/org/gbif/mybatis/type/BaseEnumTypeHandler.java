@@ -31,8 +31,7 @@ public class BaseEnumTypeHandler<K, T extends Enum<?>> implements TypeHandler<T>
     return toEnum((K) rs.getObject(columnName));
   }
 
-  @Override
-  public T getResult(ResultSet rs, int columnIndex) throws SQLException {
+  private T getResult(ResultSet rs, int columnIndex) throws SQLException {
     return toEnum((K) rs.getObject(columnIndex));
   }
 
