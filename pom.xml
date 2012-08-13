@@ -13,7 +13,8 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -40,9 +41,13 @@
     <hamcrest.version>1.2.1</hamcrest.version>
     <junit.version>4.10</junit.version>
     <mockito.version>1.9.0</mockito.version>
-    <mybatis.version>3.1.1</mybatis.version>
+    <!--
+     We need to stick to mybatis 3.0.x for now, means 3.2 for the guice plugin
+    http://dev.gbif.org/issues/browse/REG-244
+    -->
+    <mybatis.version>3.0.6</mybatis.version>
+    <mybatis-guice.version>3.2</mybatis-guice.version>
     <mybatis-ehcache.version>1.0.0</mybatis-ehcache.version>
-    <mybatis-guice.version>3.3</mybatis-guice.version>
     <slf4j-api.version>1.6.5</slf4j-api.version>
   </properties>
 
