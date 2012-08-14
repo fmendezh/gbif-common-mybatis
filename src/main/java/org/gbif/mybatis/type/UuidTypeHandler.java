@@ -26,7 +26,8 @@ public class UuidTypeHandler extends BaseTypeHandler<UUID> {
     return toUuid(rs.getString(columnName));
   }
 
-  private UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
+  @Override
+  public UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
     return toUuid(rs.getString(columnIndex));
   }
 
