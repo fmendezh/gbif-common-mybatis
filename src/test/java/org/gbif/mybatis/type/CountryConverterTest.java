@@ -1,6 +1,7 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.Country;
+
+import org.gbif.api.vocabulary.Country;
 
 import org.junit.Test;
 

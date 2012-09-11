@@ -1,6 +1,7 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.DatasetType;
+
+import org.gbif.api.vocabulary.DatasetType;
 
 /**
  * Handler for the DatasetType Enum.

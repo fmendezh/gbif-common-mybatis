@@ -1,7 +1,6 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.Country;
-
+import org.gbif.api.vocabulary.Country;
 
 /**
  * MyBatis TypeHandler for {@link Country} enum.

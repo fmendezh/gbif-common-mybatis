@@ -1,7 +1,7 @@
 package org.gbif.mybatis.type;
 
 import org.gbif.api.exception.ServiceUnavailableException;
-import org.gbif.api.model.vocabulary.IdentifierType;
+import org.gbif.api.vocabulary.IdentifierType;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,17 +1,18 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.DatasetSubtype;
+
+import org.gbif.api.vocabulary.DatasetSubtype;
 
 import com.google.common.collect.ImmutableMap;
 
-import static org.gbif.api.model.vocabulary.DatasetSubtype.DERIVED_FROM_OCCURRENCE;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.GLOBAL_SPECIES_DATASET;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.INVENTORY_REGIONAL;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.INVENTORY_THEMATIC;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.NOMENCLATOR_AUTHORITY;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.OBSERVATION;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.SPECIMEN;
-import static org.gbif.api.model.vocabulary.DatasetSubtype.TAXONOMIC_AUTHORITY;
+import static org.gbif.api.vocabulary.DatasetSubtype.DERIVED_FROM_OCCURRENCE;
+import static org.gbif.api.vocabulary.DatasetSubtype.GLOBAL_SPECIES_DATASET;
+import static org.gbif.api.vocabulary.DatasetSubtype.INVENTORY_REGIONAL;
+import static org.gbif.api.vocabulary.DatasetSubtype.INVENTORY_THEMATIC;
+import static org.gbif.api.vocabulary.DatasetSubtype.NOMENCLATOR_AUTHORITY;
+import static org.gbif.api.vocabulary.DatasetSubtype.OBSERVATION;
+import static org.gbif.api.vocabulary.DatasetSubtype.SPECIMEN;
+import static org.gbif.api.vocabulary.DatasetSubtype.TAXONOMIC_AUTHORITY;
 
 /**
  * Converter class for DatasetSubtype Enum using an immutable bimap for mapping key/values.

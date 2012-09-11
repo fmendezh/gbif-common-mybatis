@@ -1,6 +1,7 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.Language;
+
+import org.gbif.api.vocabulary.Language;
 
 import org.junit.Test;
 

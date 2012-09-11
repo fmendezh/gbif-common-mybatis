@@ -1,6 +1,7 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.IdentifierType;
+
+import org.gbif.api.vocabulary.IdentifierType;
 
 import org.junit.Test;
 

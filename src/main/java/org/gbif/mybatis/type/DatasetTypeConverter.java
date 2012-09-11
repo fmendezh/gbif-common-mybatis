@@ -1,12 +1,12 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.DatasetType;
+import org.gbif.api.vocabulary.DatasetType;
 
 import com.google.common.collect.ImmutableMap;
 
-import static org.gbif.api.model.vocabulary.DatasetType.CHECKLIST;
-import static org.gbif.api.model.vocabulary.DatasetType.METADATA;
-import static org.gbif.api.model.vocabulary.DatasetType.OCCURRENCE;
+import static org.gbif.api.vocabulary.DatasetType.CHECKLIST;
+import static org.gbif.api.vocabulary.DatasetType.METADATA;
+import static org.gbif.api.vocabulary.DatasetType.OCCURRENCE;
 
 /**
  * Converter class for DatasetType Enum using an immutable bimap for mapping key/values.

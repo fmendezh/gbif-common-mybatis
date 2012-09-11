@@ -1,20 +1,20 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.IdentifierType;
+import org.gbif.api.vocabulary.IdentifierType;
 
 import com.google.common.collect.ImmutableMap;
 
-import static org.gbif.api.model.vocabulary.IdentifierType.DOI;
-import static org.gbif.api.model.vocabulary.IdentifierType.FTP;
-import static org.gbif.api.model.vocabulary.IdentifierType.GBIF_PORTAL;
-import static org.gbif.api.model.vocabulary.IdentifierType.GBIF_NODE;
-import static org.gbif.api.model.vocabulary.IdentifierType.HANDLER;
-import static org.gbif.api.model.vocabulary.IdentifierType.LSID;
-import static org.gbif.api.model.vocabulary.IdentifierType.SOURCE_ID;
-import static org.gbif.api.model.vocabulary.IdentifierType.UNKNOWN;
-import static org.gbif.api.model.vocabulary.IdentifierType.URI;
-import static org.gbif.api.model.vocabulary.IdentifierType.URL;
-import static org.gbif.api.model.vocabulary.IdentifierType.UUID;
+import static org.gbif.api.vocabulary.IdentifierType.DOI;
+import static org.gbif.api.vocabulary.IdentifierType.FTP;
+import static org.gbif.api.vocabulary.IdentifierType.GBIF_PORTAL;
+import static org.gbif.api.vocabulary.IdentifierType.GBIF_NODE;
+import static org.gbif.api.vocabulary.IdentifierType.HANDLER;
+import static org.gbif.api.vocabulary.IdentifierType.LSID;
+import static org.gbif.api.vocabulary.IdentifierType.SOURCE_ID;
+import static org.gbif.api.vocabulary.IdentifierType.UNKNOWN;
+import static org.gbif.api.vocabulary.IdentifierType.URI;
+import static org.gbif.api.vocabulary.IdentifierType.URL;
+import static org.gbif.api.vocabulary.IdentifierType.UUID;
 
 /**
  * EnumConverter for IdentifierType.

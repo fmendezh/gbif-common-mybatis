@@ -1,6 +1,7 @@
 package org.gbif.mybatis.type;
 
-import org.gbif.api.model.vocabulary.DatasetSubtype;
+
+import org.gbif.api.vocabulary.DatasetSubtype;
 
 /**
  * Handler for the DatasetSubtypeType Enum.
