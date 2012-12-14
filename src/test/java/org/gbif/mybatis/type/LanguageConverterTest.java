@@ -28,5 +28,10 @@ public class LanguageConverterTest {
     assertEquals(Language.DANISH, conv.toEnum("da"));
     assertEquals(Language.ENGLISH, conv.toEnum("EN"));
     assertEquals(Language.SPANISH, conv.toEnum("ES"));
+    assertEquals(Language.UNKNOWN, conv.toEnum("ZZ"));
+    assertEquals(Language.UNKNOWN, conv.toEnum("nothing"));
+    assertEquals(Language.UNKNOWN, conv.toEnum(""));
+    assertEquals(Language.UNKNOWN, conv.toEnum(" "));
+    assertEquals(Language.UNKNOWN, conv.toEnum(null));
   }
 }
