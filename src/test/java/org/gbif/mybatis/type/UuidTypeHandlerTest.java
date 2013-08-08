@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.UUID;
 
 import org.apache.ibatis.type.JdbcType;
@@ -39,14 +40,14 @@ public class UuidTypeHandlerTest {
 
   @Test
   public void testSetValidParameter() throws SQLException {
-    uth.setParameter(stmt, 1, testUuid, JdbcType.VARCHAR);
-    verify(stmt).setString(1, testUuid.toString());
+    uth.setParameter(stmt, 1, testUuid, JdbcType.OTHER);
+    verify(stmt).setObject(1, testUuid.toString(), Types.OTHER);
   }
 
   @Test
   public void testSetNullParameter() throws SQLException {
-    uth.setParameter(stmt, 1, null, JdbcType.VARCHAR);
-    verify(stmt).setNull(1, JdbcType.VARCHAR.TYPE_CODE);
+    uth.setParameter(stmt, 1, null, JdbcType.OTHER);
+    verify(stmt).setObject(1, null, Types.OTHER);
   }
 
   // DISCUSS: Is this correct?
