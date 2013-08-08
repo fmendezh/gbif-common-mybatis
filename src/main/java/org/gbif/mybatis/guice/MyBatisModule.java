@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import com.google.inject.Key;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
+import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.datasource.bonecp.BoneCPProvider;
 import org.slf4j.Logger;
@@ -49,6 +50,8 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
   @Override
   protected void initialize() {
+    LogFactory.useSlf4jLogging();
+
     // makes things like logo_url map to logoUrl
     bindConstant().annotatedWith(Names.named("mybatis.configuration.mapUnderscoreToCamelCase")).to(true);
 
