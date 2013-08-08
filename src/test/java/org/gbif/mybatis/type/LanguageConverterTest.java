@@ -6,6 +6,7 @@ import org.gbif.api.vocabulary.Language;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -18,12 +19,16 @@ public class LanguageConverterTest {
   @Test
   public void testCompleteness() {
     for (Language t : Language.values()) {
-      assertTrue(conv.fromEnum(t) != null);
+      if (t == Language.UNKNOWN) {
+        assertTrue(conv.fromEnum(t) == null);
+      } else {
+        assertTrue(conv.fromEnum(t) != null);
+      }
     }
   }
 
   @Test
-  public void testConversions() {
+  public void testToEnum() {
     assertEquals(Language.DANISH, conv.toEnum("DA"));
     assertEquals(Language.DANISH, conv.toEnum("da"));
     assertEquals(Language.ENGLISH, conv.toEnum("EN"));
@@ -33,5 +38,12 @@ public class LanguageConverterTest {
     assertEquals(Language.UNKNOWN, conv.toEnum(""));
     assertEquals(Language.UNKNOWN, conv.toEnum(" "));
     assertEquals(Language.UNKNOWN, conv.toEnum(null));
+  }
+
+  @Test
+  public void testFromEnum() {
+    assertEquals("da", conv.fromEnum(Language.DANISH));
+    assertNull(conv.fromEnum(Language.UNKNOWN));
+    assertNull(conv.fromEnum(null));
   }
 }

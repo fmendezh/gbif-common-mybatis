@@ -10,12 +10,13 @@ public class CountryConverter implements EnumConverter<String, Country> {
 
   @Override
   public String fromEnum(Country value) {
-    return value.getIso2LetterCode();
+    return value == null || value == Country.UNKNOWN ? null : value.getIso2LetterCode();
   }
 
   @Override
   public Country toEnum(String key) {
-    return Country.fromIsoCode(key);
+    Country c = Country.fromIsoCode(key);
+    return c == null ? Country.UNKNOWN : c;
   }
 
 }
