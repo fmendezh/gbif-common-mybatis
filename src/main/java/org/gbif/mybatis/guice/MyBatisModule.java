@@ -49,6 +49,8 @@ public abstract class MyBatisModule extends org.mybatis.guice.MyBatisModule {
 
   @Override
   protected void initialize() {
+    // makes things like logo_url map to logoUrl
+    bindConstant().annotatedWith(Names.named("mybatis.configuration.mapUnderscoreToCamelCase")).to(true);
 
     useCacheEnabled(useCache());
     if (useCache()) {
