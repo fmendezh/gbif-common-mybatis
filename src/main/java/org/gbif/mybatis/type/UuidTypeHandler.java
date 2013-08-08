@@ -4,47 +4,45 @@ import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.UUID;
 
-import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.TypeHandler;
 
 /**
  * Handler for UUID types.
  *
  * @see UUID
  */
-public class UuidTypeHandler extends BaseTypeHandler<UUID> {
+public class UuidTypeHandler implements TypeHandler<UUID> {
 
   @Override
-  public void setNonNullParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType) throws SQLException {
-    ps.setString(i, parameter.toString());
+  public void setParameter(PreparedStatement ps, int i, UUID parameter, JdbcType jdbcType) throws SQLException {
+    if (parameter == null) {
+      ps.setObject(i, null, Types.OTHER);
+    } else {
+      ps.setObject(i, parameter.toString(), Types.OTHER);
+    }
+
   }
 
   @Override
-  public UUID getNullableResult(ResultSet rs, String columnName) throws SQLException {
-    return toUuid(rs.getString(columnName));
+  public UUID getResult(ResultSet rs, String columnName) throws SQLException {
+    if (rs.getString(columnName) != null) {
+      return UUID.fromString(rs.getString(columnName));
+    }
+    return null;
   }
 
   @Override
-  public UUID getNullableResult(ResultSet rs, int columnIndex) throws SQLException {
-    return toUuid(rs.getString(columnIndex));
+  public UUID getResult(ResultSet rs, int columnIndex) throws SQLException {
+    return UUID.fromString(rs.getString(columnIndex));
   }
 
   @Override
-  public UUID getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
-    return toUuid(cs.getString(columnIndex));
-  }
-
-  /**
-   * Converts a string to a {@link UUID} object if it is not null, returns {@code null otherwise}.
-   *
-   * @param val to convert into a UUID object, may be null
-   *
-   * @return UUID object created from the val parameter
-   */
-  private static UUID toUuid(String val) {
-    return val == null ? null : UUID.fromString(val);
+  public UUID getResult(CallableStatement cs, int columnIndex) throws SQLException {
+    return UUID.fromString(cs.getString(columnIndex));
   }
 
 }
