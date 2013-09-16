@@ -9,11 +9,14 @@ import java.sql.SQLException;
 
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A simple converter for varchars to URI.
  */
 public class UriTypeHandler extends BaseTypeHandler<URI> {
+  private static final Logger LOG = LoggerFactory.getLogger(UriTypeHandler.class);
 
   @Override
   public void setNonNullParameter(PreparedStatement ps, int i, URI parameter, JdbcType jdbcType) throws SQLException {
@@ -39,7 +42,8 @@ public class UriTypeHandler extends BaseTypeHandler<URI> {
     try {
       return val == null ? null : new URI(val);
     } catch (URISyntaxException e) {
-      throw new SQLException(e);
+      LOG.warn("Invalid URI {}", val, e);
+      return null;
     }
   }
 
