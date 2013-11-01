@@ -36,7 +36,7 @@ public class CountryConverterTest {
     assertEquals(Country.COSTA_RICA, conv.toEnum("cri"));
     assertEquals(Country.UNKNOWN, conv.toEnum(""));
     assertEquals(Country.UNKNOWN, conv.toEnum(" "));
-    assertEquals(Country.UNKNOWN, conv.toEnum(null));
+    assertEquals(null, conv.toEnum(null));
     assertEquals(Country.UNKNOWN, conv.toEnum("zz"));
   }
 

@@ -13,10 +13,22 @@ public class CountryConverter implements EnumConverter<String, Country> {
     return value == null || value == Country.UNKNOWN ? null : value.getIso2LetterCode();
   }
 
+  /**
+   * Matches a notnull key against the Country Enum. A key with no match against the country Enum will return
+   * Country.UNKNOWN.
+   *
+   * @param key a 2 or 3 letter ISO 3166 Country code
+   *
+   * @return matching Country Enum, or null if incoming key was null
+   */
   @Override
   public Country toEnum(String key) {
-    Country c = Country.fromIsoCode(key);
-    return c == null ? Country.UNKNOWN : c;
+    if (key == null) {
+      return null;
+    } else {
+      Country c = Country.fromIsoCode(key);
+      return c == null ? Country.UNKNOWN : c;
+    }
   }
 
 }
